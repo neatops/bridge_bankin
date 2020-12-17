@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "bridge_bankin/version"
+# Version
+require "bridge_bankin/version"
+
+# API
+require "bridge_bankin/api/client"
 
 module BridgeBankin
-  class Error < StandardError; end
-  # Your code goes here...
 end
