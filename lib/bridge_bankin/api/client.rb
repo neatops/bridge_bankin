@@ -8,8 +8,8 @@ module BridgeBankin
   module API
     class Client
       # TODO: Remove this in favor of configs
-      BRIDGE_API_CLIENT_ID = "d16099aec29e445dbb31cf3966b3821e"
-      BRIDGE_API_CLIENT_SECRET = "HEb73vHEGB4Hunv5OMXFUDNIgNonYJ89YaHHRSyidVgCPbCtFWqtED5fZYObA0lm"
+      BRIDGE_API_CLIENT_ID = "client_id"
+      BRIDGE_API_CLIENT_SECRET = "client_secret"
 
       BASE_URL = "https://sync.bankin.com"
 
