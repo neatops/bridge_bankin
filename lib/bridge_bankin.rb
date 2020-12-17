@@ -10,6 +10,7 @@ require "bridge_bankin/api/client"
 require "bridge_bankin/resource"
 require "bridge_bankin/account"
 require "bridge_bankin/category"
+require "bridge_bankin/stock"
 
 module BridgeBankin
 end

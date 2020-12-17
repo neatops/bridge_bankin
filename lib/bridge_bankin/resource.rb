@@ -7,6 +7,10 @@ module BridgeBankin
         not_implemented_error
       end
 
+      def list_updated
+        not_implemented_error
+      end
+
       def find(_resource_id)
         not_implemented_error
       end

@@ -12,6 +12,11 @@ RSpec.describe BridgeBankin::Resource do
     it_behaves_like "a not implemented method"
   end
 
+  describe ".list_updated" do
+    subject { described_class.list }
+    it_behaves_like "a not implemented method"
+  end
+
   describe ".find" do
     subject { described_class.find("resource_id") }
     it_behaves_like "a not implemented method"
