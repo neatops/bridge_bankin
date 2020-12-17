@@ -4,7 +4,7 @@ require_relative "lib/bridge_bankin/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "bridge_bankin"
-  spec.version       = Bridge::Ruby::VERSION
+  spec.version       = BridgeBankin::VERSION
   spec.authors       = ["Olivier Buffon"]
   spec.email         = ["olivier@buffon.dev"]
 
@@ -35,4 +35,11 @@ Gem::Specification.new do |spec|
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
+
+  spec.add_development_dependency "awesome_print"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "shoulda-matchers"
 end

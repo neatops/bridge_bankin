@@ -2,11 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in bridge_bankin.gemspec
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+# Specify your gem's dependencies in sisense.gemspec
 gemspec
-
-gem "rake", "~> 13.0"
-
-gem "rspec", "~> 3.0"
-
-gem "rubocop", "~> 0.80"
