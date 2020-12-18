@@ -19,6 +19,7 @@ require "bridge_bankin/connect"
 require "bridge_bankin/item"
 require "bridge_bankin/transaction"
 require "bridge_bankin/transfer"
+require "bridge_bankin/insight"
 
 module BridgeBankin
 end
