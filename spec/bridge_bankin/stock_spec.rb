@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-RSpec.describe BridgeBankin::Stock, resource: true do
-  describe ".list" do
+RSpec.describe BridgeBankin::Stock do
+  describe ".list", public_resource: true do
     it "calls API client get method with the endpoint path" do
       expect(api_client).to receive(:get).with("/v2/stocks")
       described_class.list
     end
   end
 
-  describe ".list_updated" do
+  describe ".list_updated", public_resource: true do
     it "calls API client get method with the endpoint path" do
       expect(api_client).to receive(:get).with("/v2/stocks")
       described_class.list
     end
   end
 
-  describe ".find" do
+  describe ".find", public_resource: true do
     let(:stock_id) { ":id" }
 
     it "calls API client get method with the endpoint path" do

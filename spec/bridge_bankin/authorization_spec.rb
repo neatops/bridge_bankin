@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe BridgeBankin::Authorization, resource: true do
-  describe ".generate_token" do
+RSpec.describe BridgeBankin::Authorization do
+  describe ".generate_token", public_resource: true do
     let(:api_response) do
       {
         access_token: "new_generated_access_token",

@@ -47,16 +47,18 @@ RSpec.describe BridgeBankin::User do
   end
 
   describe ".check_email_confirmation", private_resource: true do
+    subject { described_class.check_email_confirmation(access_token: "access_token") }
     it "calls API client get method with the endpoint path" do
       expect(api_client).to receive(:get).with("/v2/users/me/email/confirmation", {})
-      described_class.check_email_confirmation(access_token: "access_token")
+      subject
     end
   end
 
   describe ".manage_accounts", private_resource: true do
+    subject { described_class.manage_accounts(access_token: "access_token") }
     it "calls API client get method with the endpoint path" do
       expect(api_client).to receive(:get).with("/v2/users/manage/accounts/iban", {})
-      described_class.manage_accounts(access_token: "access_token")
+      subject
     end
   end
 end
