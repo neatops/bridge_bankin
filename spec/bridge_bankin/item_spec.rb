@@ -21,7 +21,7 @@ RSpec.describe BridgeBankin::Item do
 
   describe ".refresh", private_resource: true do
     subject { described_class.refresh(id: item_id, access_token: "access_token") }
-    it "calls API client get method with the endpoint path" do
+    it "calls API client post method with the endpoint path" do
       expect(api_client).to receive(:post).with("/v2/items/#{item_id}/refresh", {})
       subject
     end

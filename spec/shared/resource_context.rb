@@ -22,7 +22,7 @@ RSpec.shared_context "private resource context", shared_context: :metadata do
     expect(described_class).to be < BridgeBankin::Resource
   end
 
-  it "requires an access_token to be defined" do
+  it "requires an access_token" do
     allow(api_client).to receive_messages(BridgeBankin::API::Client::HTTP_VERBS_MAP.keys)
     expect(api_client).to receive(:access_token=)
     subject
