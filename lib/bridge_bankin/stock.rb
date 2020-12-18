@@ -11,8 +11,8 @@ module BridgeBankin
         api_client.get("/v2/updated")
       end
 
-      def find(stock_id)
-        api_client.get("/v2/stocks/#{stock_id}")
+      def find(id:)
+        api_client.get("/v2/stocks/#{id}")
       end
     end
   end

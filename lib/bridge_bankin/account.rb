@@ -7,8 +7,8 @@ module BridgeBankin
         api_client.get("/v2/accounts")
       end
 
-      def find(account_id)
-        api_client.get("/v2/accounts/#{account_id}")
+      def find(id:)
+        api_client.get("/v2/accounts/#{id}")
       end
     end
   end
