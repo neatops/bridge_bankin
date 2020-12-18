@@ -14,20 +14,22 @@ module BridgeBankin
         delete: Net::HTTP::Delete
       }.freeze
 
-      def get(path, params: {})
+      attr_accessor :access_token
+
+      def get(path, **params)
         request :get, path, params
       end
 
-      def post(path, params: {})
+      def post(path, **params)
         request :post, path, params
       end
 
-      def put(path, params: {})
+      def put(path, **params)
         request :put, path, params
       end
 
-      def delete(path)
-        request :delete, path
+      def delete(path, **params)
+        request :delete, path, params
       end
 
       private
@@ -35,7 +37,7 @@ module BridgeBankin
       def request(method, path, params = {})
         make_http_request do
           HTTP_VERBS_MAP[method].new(encode_path(path, params), headers).tap do |request|
-            request.body = parameterize(params).to_json if method != :get
+            request.body = params.to_json if method != :get
           end
         end
       end
@@ -44,7 +46,7 @@ module BridgeBankin
         Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
           http_response = http.request(yield)
           # TODO: Add error handling
-          JSON.parse(http_response.body)
+          JSON.parse(http_response.body, symbolize_names: true)
         end
       end
 
@@ -53,11 +55,17 @@ module BridgeBankin
       end
 
       def headers
-        {
-          "Bankin-Version" => BridgeBankin.configuration.api_version,
-          "Client-Id" => BridgeBankin.configuration.api_client_id,
-          "Client-Secret" => BridgeBankin.configuration.api_client_secret
-        }
+        headers =
+          {
+            "Bankin-Version" => BridgeBankin.configuration.api_version,
+            "Client-Id" => BridgeBankin.configuration.api_client_id,
+            "Client-Secret" => BridgeBankin.configuration.api_client_secret,
+            "Content-Type" => "application/json"
+          }
+
+        return headers unless access_token
+
+        headers.merge!("Authorization" => "Bearer #{access_token}")
       end
 
       def encode_path(path, params = nil)

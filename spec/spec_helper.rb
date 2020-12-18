@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "securerandom"
+
 require "bridge_bankin"
 require "shared/configuration"
 require "shared/resource_context"
@@ -15,5 +17,6 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.include_context "resource context", resource: true
+  config.include_context "public resource context", public_resource: true
+  config.include_context "private resource context", private_resource: true
 end

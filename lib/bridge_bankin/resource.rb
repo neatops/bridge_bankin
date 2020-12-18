@@ -2,17 +2,12 @@
 
 module BridgeBankin
   class Resource
+    def initialize(*params); end
+
     class << self
-      def list
-        not_implemented_error
-      end
-
-      def list_updated
-        not_implemented_error
-      end
-
-      def find(_resource_id)
-        not_implemented_error
+      def protected_resource(access_token)
+        api_client.access_token = access_token
+        yield
       end
 
       private
