@@ -7,18 +7,6 @@ require "json"
 module BridgeBankin
   module API
     class Client
-      # TODO: Remove this in favor of configs
-      BRIDGE_API_CLIENT_ID = "client_id"
-      BRIDGE_API_CLIENT_SECRET = "client_secret"
-
-      BASE_URL = "https://sync.bankin.com"
-
-      HEADERS = {
-        "Bankin-Version" => "2019-02-18",
-        "Client-Id" => BRIDGE_API_CLIENT_ID,
-        "Client-Secret" => BRIDGE_API_CLIENT_SECRET
-      }.freeze
-
       HTTP_VERBS_MAP = {
         get: Net::HTTP::Get,
         post: Net::HTTP::Post,
@@ -46,7 +34,7 @@ module BridgeBankin
 
       def request(method, path, params = {})
         make_http_request do
-          HTTP_VERBS_MAP[method].new(encode_path(path, params), HEADERS).tap do |request|
+          HTTP_VERBS_MAP[method].new(encode_path(path, params), headers).tap do |request|
             request.body = parameterize(params).to_json if method != :get
           end
         end
@@ -61,7 +49,15 @@ module BridgeBankin
       end
 
       def uri
-        @uri ||= URI.parse(BASE_URL)
+        @uri ||= URI.parse(BridgeBankin.configuration.api_base_url)
+      end
+
+      def headers
+        {
+          "Bankin-Version" => BridgeBankin.configuration.api_version,
+          "Client-Id" => BridgeBankin.configuration.api_client_id,
+          "Client-Secret" => BridgeBankin.configuration.api_client_secret
+        }
       end
 
       def encode_path(path, params = nil)

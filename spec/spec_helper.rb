@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "bridge_bankin"
+require "shared/configuration"
 require "shared/resource_context"
 
 RSpec.configure do |config|

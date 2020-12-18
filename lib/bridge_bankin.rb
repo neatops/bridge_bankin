@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# Version
+# Configurations
+require "bridge_bankin/configuration"
 require "bridge_bankin/version"
 
 # API
