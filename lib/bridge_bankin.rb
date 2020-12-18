@@ -16,6 +16,7 @@ require "bridge_bankin/stock"
 require "bridge_bankin/bank"
 require "bridge_bankin/user"
 require "bridge_bankin/connect"
+require "bridge_bankin/item"
 
 module BridgeBankin
 end
