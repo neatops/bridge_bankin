@@ -11,6 +11,13 @@ RSpec.describe BridgeBankin::User do
     end
   end
 
+  describe ".find", public_resource: true do
+    it "calls API client get method with the endpoint path" do
+      expect(api_client).to receive(:get).with("/v2/users/#{user_uuid}")
+      described_class.find(uuid: user_uuid)
+    end
+  end
+
   describe ".create", public_resource: true do
     it "calls API client post method with the endpoint path" do
       expect(api_client).to receive(:post).with("/v2/users", new_user_params)

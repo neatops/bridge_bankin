@@ -7,6 +7,10 @@ module BridgeBankin
         api_client.get("/v2/users")
       end
 
+      def find(uuid:)
+        api_client.get("/v2/users/#{uuid}")
+      end
+
       def create(**params)
         api_client.post("/v2/users", params)
       end
