@@ -3,17 +3,19 @@
 RSpec.describe BridgeBankin::Account do
   let(:account_id) { 123 }
 
-  describe ".list", public_resource: true do
+  describe ".list", private_resource: true do
+    subject { described_class.list(access_token: "access_token") }
     it "calls API client get method with the endpoint path" do
-      expect(api_client).to receive(:get).with("/v2/accounts")
-      described_class.list
+      expect(api_client).to receive(:get).with("/v2/accounts", {})
+      subject
     end
   end
 
-  describe ".find", public_resource: true do
+  describe ".find", private_resource: true do
+    subject { described_class.find(id: account_id, access_token: "access_token") }
     it "calls API client get method with the endpoint path" do
-      expect(api_client).to receive(:get).with("/v2/accounts/#{account_id}")
-      described_class.find(id: account_id)
+      expect(api_client).to receive(:get).with("/v2/accounts/#{account_id}", {})
+      subject
     end
   end
 end
