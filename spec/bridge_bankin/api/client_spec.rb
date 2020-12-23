@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe BridgeBankin::API::Client do
-  subject(api_client) { described_class.new }
+  subject(:api_client) { described_class.new }
 
   let(:request_path) { "/api/request/path" }
 
