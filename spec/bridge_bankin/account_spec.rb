@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
 RSpec.describe BridgeBankin::Account do
-  let(:account_id) { 123 }
-
   describe ".list", private_resource: true do
-    subject { described_class.list(access_token: "access_token") }
-    it "calls API client get method with the endpoint path" do
-      expect(api_client).to receive(:get).with("/v2/accounts", {})
-      subject
+    subject { described_class.list(access_token: access_token) }
+
+    it_behaves_like "a protected resource" do
+      let(:request_method) { :get }
+      let(:endpoint) { "/v2/accounts" }
     end
   end
 
   describe ".find", private_resource: true do
-    subject { described_class.find(id: account_id, access_token: "access_token") }
-    it "calls API client get method with the endpoint path" do
-      expect(api_client).to receive(:get).with("/v2/accounts/#{account_id}", {})
-      subject
+    subject { described_class.find(id: account_id, access_token: access_token) }
+
+    it_behaves_like "a protected resource" do
+      let(:account_id) { 22_167_853 }
+      let(:request_method) { :get }
+      let(:endpoint) { "/v2/accounts/#{account_id}" }
     end
   end
 end

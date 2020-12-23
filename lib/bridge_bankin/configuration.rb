@@ -20,8 +20,8 @@ module BridgeBankin
     def initialize
       @api_base_url = "https://sync.bankin.com"
       @api_version = "2019-02-18"
-      @api_client_id = nil
-      @api_client_secret = nil
+      @api_client_id = "d16099aec29e445dbb31cf3966b3821e"
+      @api_client_secret = "HEb73vHEGB4Hunv5OMXFUDNIgNonYJ89YaHHRSyidVgCPbCtFWqtED5fZYObA0lm"
     end
   end
 end

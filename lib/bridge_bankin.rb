@@ -6,9 +6,12 @@ require "bridge_bankin/version"
 
 # API
 require "bridge_bankin/api/client"
+require "bridge_bankin/api/resource"
+
+require "bridge_bankin/bridge_object"
+require "bridge_bankin/object_types"
 
 # Resources
-require "bridge_bankin/resource"
 require "bridge_bankin/authorization"
 require "bridge_bankin/account"
 require "bridge_bankin/category"

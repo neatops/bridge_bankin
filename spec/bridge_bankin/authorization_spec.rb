@@ -2,28 +2,24 @@
 
 RSpec.describe BridgeBankin::Authorization do
   describe ".generate_token", public_resource: true do
-    let(:api_response) do
-      {
-        access_token: "new_generated_access_token",
-        expires_at: Time.now.utc.strftime("%FT%T.%LZ")
-      }
+    subject(:authorization) do
+      VCR.use_cassette("request_access_token") do
+        described_class.generate_token(user_credentials)
+      end
     end
-    it "calls API client post method with the endpoint path and required params" do
-      expect(api_client).to(
-        receive(:post)
-          .with("/v2/authenticate", email: "john.doe@email.com", password: "password123")
-          .and_return(api_response)
-      )
-      described_class.generate_token(email: "john.doe@email.com", password: "password123")
-    end
+
+    let(:user_credentials) { { email: "john.doe@email.com", password: "password123" } }
 
     it "returns the API result as a new instance of the current class" do
-      allow(api_client).to receive(:post).and_return(api_response)
-      authorization = described_class.generate_token(email: "john.doe@email.com", password: "password123")
-
       expect(authorization).to be_a(described_class)
-      expect(authorization.access_token).to eq api_response[:access_token]
-      expect(authorization.expires_at).to eq Time.parse(api_response[:expires_at])
+    end
+
+    it "returns a valid API token" do
+      expect(authorization.access_token).to be_a String
+    end
+
+    it "returns a expiration value as a Time object" do
+      expect(authorization.expires_at).to be_a Time
     end
   end
 end

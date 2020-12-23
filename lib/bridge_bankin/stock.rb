@@ -1,18 +1,25 @@
 # frozen_string_literal: true
 
 module BridgeBankin
-  class Stock < Resource
+  class Stock < BridgeObject
+    RESOURCE_TYPE = "stock"
+
     class << self
-      def list
-        api_client.get("/v2/stocks")
+      include API::Resource
+
+      def list(**params)
+        data = api_client.get("/v2/stocks", params)
+        convert_to_bridge_object(data)
       end
 
-      def list_updated
-        api_client.get("/v2/updated")
+      def list_updated(**params)
+        data = api_client.get("/v2/stocks/updated", params)
+        convert_to_bridge_object(data)
       end
 
-      def find(id:)
-        api_client.get("/v2/stocks/#{id}")
+      def find(id:, **params)
+        data = api_client.get("/v2/stocks/#{id}", params)
+        convert_to_bridge_object(data)
       end
     end
   end
