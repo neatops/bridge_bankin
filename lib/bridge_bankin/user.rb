@@ -7,13 +7,13 @@ module BridgeBankin
     class << self
       include API::Resource
 
-      def list
-        data = api_client.get("/v2/users")
+      def list(**params)
+        data = api_client.get("/v2/users", params)
         convert_to_bridge_object(data)
       end
 
-      def find(uuid:)
-        data = api_client.get("/v2/users/#{uuid}")
+      def find(uuid:, **params)
+        data = api_client.get("/v2/users/#{uuid}", params)
         convert_to_bridge_object(data)
       end
 
@@ -37,8 +37,8 @@ module BridgeBankin
         convert_to_bridge_object(data)
       end
 
-      def delete_all_users
-        data = api_client.delete("/v2/users")
+      def delete_all_users(**params)
+        data = api_client.delete("/v2/users", params)
         convert_to_bridge_object(data)
       end
 

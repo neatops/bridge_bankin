@@ -7,18 +7,18 @@ module BridgeBankin
     class << self
       include API::Resource
 
-      def list
-        data = api_client.get("/v2/stocks")
+      def list(**params)
+        data = api_client.get("/v2/stocks", params)
         convert_to_bridge_object(data)
       end
 
-      def list_updated
-        data = api_client.get("/v2/updated")
+      def list_updated(**params)
+        data = api_client.get("/v2/stocks/updated", params)
         convert_to_bridge_object(data)
       end
 
-      def find(id:)
-        data = api_client.get("/v2/stocks/#{id}")
+      def find(id:, **params)
+        data = api_client.get("/v2/stocks/#{id}", params)
         convert_to_bridge_object(data)
       end
     end

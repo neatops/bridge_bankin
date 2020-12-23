@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sync.bankin.com/v2/authenticate?email=john.doe@email.com&password=password123
+    body:
+      encoding: US-ASCII
+      string: email=john.doe%40email.com&password=password123
+    headers:
+      Bankin-Version:
+      - '2019-02-18'
+      Client-Id:
+      - "<api_client_id>"
+      Client-Secret:
+      - "<api_client_secret>"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Dec 2020 21:32:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Request-Time:
+      - '383'
+      X-Robots-Tag:
+      - noindex
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - 'default-src ''self''; img-src ''self'' https://web.bankin.com; data: https://*.bankin.com'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload;
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"75c02d86530cb4b4ab5f80ae4b3b692117dfb992-16ad332f-3368-4d56-a846-0fadc8cceb35","expires_at":"2020-12-23T23:32:44.158Z","user":{"uuid":"73a9a664-66b9-41a3-8f93-e404036f7c2e","resource_uri":"/v2/users/73a9a664-66b9-41a3-8f93-e404036f7c2e","resource_type":"user","email":"john.doe@email.com"}}'
+  recorded_at: Wed, 23 Dec 2020 21:32:44 GMT
+recorded_with: VCR 6.0.0

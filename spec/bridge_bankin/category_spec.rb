@@ -4,16 +4,21 @@ RSpec.describe BridgeBankin::Category do
   let(:category_id) { 123 }
 
   describe ".list", public_resource: true do
-    it "calls API client get method with the endpoint path" do
-      expect(api_client).to receive(:get).with("/v2/categories")
-      described_class.list
+    subject { described_class.list }
+
+    it_behaves_like "a public resource" do
+      let(:request_method) { :get }
+      let(:endpoint) { "/v2/categories" }
     end
   end
 
   describe ".find", public_resource: true do
-    it "calls API client get method with the endpoint path" do
-      expect(api_client).to receive(:get).with("/v2/categories/#{category_id}")
-      described_class.find(id: category_id)
+    subject { described_class.find(id: category_id) }
+
+    it_behaves_like "a public resource" do
+      let(:category_id) { 457 }
+      let(:request_method) { :get }
+      let(:endpoint) { "/v2/categories/#{category_id}" }
     end
   end
 end

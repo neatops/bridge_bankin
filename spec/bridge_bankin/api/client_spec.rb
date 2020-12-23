@@ -21,20 +21,12 @@ RSpec.describe BridgeBankin::API::Client do
       expect(subject).to receive(:request).with(:get, any_args)
       subject.get(request_path)
     end
-
-    it "returns a parsed JSON response (Hash)" do
-      expect(subject.get(request_path)).to be_a(Hash)
-    end
   end
 
   describe "#post" do
     it "calls `request` with :post HTTP method" do
       expect(subject).to receive(:request).with(:post, any_args)
       subject.post(request_path)
-    end
-
-    it "returns a parsed JSON response (Hash)" do
-      expect(subject.get(request_path)).to be_a(Hash)
     end
   end
 
@@ -43,20 +35,12 @@ RSpec.describe BridgeBankin::API::Client do
       expect(subject).to receive(:request).with(:put, any_args)
       subject.put(request_path)
     end
-
-    it "returns a parsed JSON response (Hash)" do
-      expect(subject.get(request_path)).to be_a(Hash)
-    end
   end
 
   describe "#delete" do
     it "calls `request` with :delete HTTP method" do
       expect(subject).to receive(:request).with(:delete, any_args)
       subject.delete(request_path)
-    end
-
-    it "returns a parsed JSON response (Hash)" do
-      expect(subject.get(request_path)).to be_a(Hash)
     end
   end
 end

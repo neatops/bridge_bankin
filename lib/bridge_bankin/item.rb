@@ -35,9 +35,9 @@ module BridgeBankin
         end
       end
 
-      def delete(id:, access_token:)
+      def delete(id:, access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.delete("/v2/items/#{id}")
+          data = api_client.delete("/v2/items/#{id}", params)
           convert_to_bridge_object(data)
         end
       end
