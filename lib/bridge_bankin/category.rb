@@ -1,14 +1,20 @@
 # frozen_string_literal: true
 
 module BridgeBankin
-  class Category < Resource
+  class Category < BridgeObject
+    RESOURCE_TYPE = "category"
+
     class << self
-      def list
-        api_client.get("/v2/categories")
+      include API::Resource
+
+      def list(**params)
+        data = api_client.get("/v2/categories", params)
+        convert_to_bridge_object(data)
       end
 
-      def find(id:)
-        api_client.get("/v2/categories/#{id}")
+      def find(id:, **params)
+        data = api_client.get("/v2/categories/#{id}", params)
+        convert_to_bridge_object(data)
       end
     end
   end
