@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "public resource context", shared_context: :metadata do
+RSpec.shared_context "when resource is public", shared_context: :metadata do
   let(:api_client) { instance_double("BridgeBankin::API::Client") }
 
   shared_examples "a public resource" do
@@ -28,7 +28,7 @@ RSpec.shared_context "public resource context", shared_context: :metadata do
   end
 end
 
-RSpec.shared_context "private resource context", shared_context: :metadata do
+RSpec.shared_context "when resource is private", shared_context: :metadata do
   let(:authorization) do
     VCR.use_cassette("request_access_token") do
       BridgeBankin::Authorization.generate_token(

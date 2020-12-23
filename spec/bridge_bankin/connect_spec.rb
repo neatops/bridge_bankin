@@ -14,6 +14,7 @@ RSpec.describe BridgeBankin::Connect do
 
   describe ".connect_item_with_iban", private_resource: true do
     subject { described_class.connect_item_with_iban(access_token: access_token) }
+
     it_behaves_like "a protected resource" do
       let(:request_method) { :post }
       let(:endpoint) { "/v2/connect/items/add/url" }
@@ -22,6 +23,7 @@ RSpec.describe BridgeBankin::Connect do
 
   describe ".edit_item", private_resource: true do
     subject { described_class.edit_item(access_token: access_token) }
+
     it_behaves_like "a protected resource" do
       let(:request_method) { :get }
       let(:endpoint) { "/v2/connect/items/edit/url" }
@@ -30,6 +32,7 @@ RSpec.describe BridgeBankin::Connect do
 
   describe ".item_sync", private_resource: true do
     subject { described_class.item_sync(access_token: access_token) }
+
     it_behaves_like "a protected resource" do
       let(:request_method) { :get }
       let(:endpoint) { "/v2/connect/items/sync" }
@@ -38,6 +41,7 @@ RSpec.describe BridgeBankin::Connect do
 
   describe ".validate_email", private_resource: true do
     subject { described_class.validate_email(access_token: access_token) }
+
     it_behaves_like "a protected resource" do
       let(:request_method) { :get }
       let(:endpoint) { "/v2/connect/users/email/confirmation/url" }
@@ -46,6 +50,7 @@ RSpec.describe BridgeBankin::Connect do
 
   describe ".validate_pro_items", private_resource: true do
     subject { described_class.validate_pro_items(access_token: access_token) }
+
     it_behaves_like "a protected resource" do
       let(:request_method) { :get }
       let(:endpoint) { "/v2/connect/items/pro/confirmation/url" }
