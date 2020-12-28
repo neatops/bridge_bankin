@@ -23,8 +23,14 @@ Style/Documentation:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
 Metrics/MethodLength:
-  Max: 15
+  Max: 25
 
 RSpec/ExampleLength:
   Enabled: false
@@ -33,4 +39,7 @@ RSpec/MessageSpies:
   Enabled: false
 
 RSpec/SubjectStub:
+  Enabled: false
+
+RSpec/MultipleDescribes:
   Enabled: false
