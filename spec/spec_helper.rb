@@ -14,7 +14,7 @@ BridgeBankin.configure do |config|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = "vcr"
+  config.cassette_library_dir = "spec/vcr"
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.define_cassette_placeholder("<api_client_id>") { BridgeBankin.configuration.api_client_id }
