@@ -1,18 +1,24 @@
 name: Ruby
 
-on: [push,pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7.2
-    - name: Run the default task
-      run: |
-        gem install bundler -v 2.2.1
-        bundle install
-        bundle exec rake
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Run the default task
+        run: |
+          gem install bundler -v 2.2.1
+          bundle install
+          bundle exec rake
