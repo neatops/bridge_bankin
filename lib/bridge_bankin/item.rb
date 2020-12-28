@@ -4,6 +4,8 @@ module BridgeBankin
   class Item < BridgeObject
     RESOURCE_TYPE = "item"
 
+    # TODO: Add support of item statuses
+
     class << self
       include API::Resource
 
