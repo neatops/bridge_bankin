@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bridge_bankin/authorization"
 require "bridge_bankin/account"
 require "bridge_bankin/category"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BridgeBankin
   module API
     class Error < StandardError
