@@ -2,7 +2,7 @@
   <img width="500" src="https://user-images.githubusercontent.com/112219/103307983-5fe04500-49df-11eb-9618-1f9704b2f460.png">
 </p>
 
-# BridgeBankin
+---
 
 This gem is an **unofficial client** that consumes the Bridge by Bankin’ API
 
