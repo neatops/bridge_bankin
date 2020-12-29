@@ -1,4 +1,4 @@
-name: Ruby
+name: CI
 
 on:
   push:
@@ -16,9 +16,9 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 2.7
       - name: Run the default task
         run: |
-          gem install bundler -v 2.2.1
+          gem install bundler
           bundle install
-          bundle exec rake
+          bundle exec rspec
