@@ -20,7 +20,7 @@ module BridgeBankin
       #
       # Convert any API response body with its corresponding resource object if exists
       #
-      # @param [Hash] **data parsed API response body
+      # @param [Hash] data parsed API response body
       #
       # @return the matched existing resource
       #
