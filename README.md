@@ -2,9 +2,9 @@
   <img width="500" src="https://user-images.githubusercontent.com/112219/103307983-5fe04500-49df-11eb-9618-1f9704b2f460.png">
 </p>
 
----
+<br />
 
-This gem is an **unofficial client** that consumes the Bridge by Bankin’ API
+This gem is an **unofficial client** that consumes the [Bridge by Bankin’ API](https://bridgeapi.io/).
 
 Thanks to a safe and automated access to bank data, Bridge powered by Bankin’ provides
 competitive and smart solutions to build conversion-driver financial services.
