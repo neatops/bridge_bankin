@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module BridgeBankin
+  #
+  # Item resource
+  #
   class Item < BridgeObject
     RESOURCE_TYPE = "item"
 

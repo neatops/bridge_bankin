@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module BridgeBankin
+  #
+  # Connect resource
+  #
   class Connect < BridgeObject
     class << self
       include API::Resource

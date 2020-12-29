@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module BridgeBankin
+  #
+  # User resource
+  #
   class User < BridgeObject
     RESOURCE_TYPE = "user"
 

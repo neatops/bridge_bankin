@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module BridgeBankin
+  #
+  # Transfer resource
+  #
   class Transfer < BridgeObject
     RESOURCE_TYPE = "transfert"
 
