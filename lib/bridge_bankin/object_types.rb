@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
 module BridgeBankin
+  #
+  # Supported resources types
+  #
   module ObjectTypes
+    #
+    # Matches API resources with corresponding gem classes
+    #
+    # @return [Account, Bank, Category, Item, Stock, Transaction, Transfer, User, nil] the matched resource or nil
+    #
     def self.resource_types_to_classes
       {
         Account::RESOURCE_TYPE => Account,

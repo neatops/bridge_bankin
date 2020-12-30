@@ -1,14 +1,29 @@
 # frozen_string_literal: true
 
 module BridgeBankin
+  #
+  # BridgeObject is the base class from which all other more specific BridgeBankin resources derive.
+  #
   class BridgeObject
     HIDDEN_ATTRIBUTES = %i[resource_type resource_uri].freeze
 
+    #
+    # Initializes BridgeObject
+    #
+    # @param [Hash] attrs any informations returned by the API as a valid response
+    #
     def initialize(**attrs)
       define_instance_variables(attrs)
     end
 
     class << self
+      #
+      # Convert any API response body with its corresponding resource object if exists
+      #
+      # @param [Hash] data parsed API response body
+      #
+      # @return the matched existing resource
+      #
       def convert_to_bridge_object(**data)
         if data[:resources]
           data[:resources].map { |resource| convert_to_bridge_object(resource) }
