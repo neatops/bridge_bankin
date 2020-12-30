@@ -4,7 +4,7 @@
 
 <br />
 
-This gem is an **unofficial client** that consumes the [Bridge by Bankin’ API](https://bridgeapi.io/).
+This gem is an **unofficial Ruby client** that consumes the [Bridge by Bankin’ API](https://bridgeapi.io/).
 
 Thanks to a safe and automated access to bank data, Bridge powered by Bankin’ provides
 competitive and smart solutions to build conversion-driver financial services.

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Olivier Buffon"]
   spec.email         = ["olivier@buffon.dev"]
 
-  spec.summary       = "Unofficial client to consume Bridge by Bankin’ API"
+  spec.summary       = "Unofficial Ruby client to consume Bridge by Bankin’ API"
 
   spec.description   = "Thanks to a safe and automated access to bank data, Bridge powered by Bankin’ provides " \
                        "competitive and smart solutions to build conversion-driver financial services."
