@@ -89,9 +89,14 @@ module BridgeBankin
         Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
           api_response = http.request(yield)
 
-          return parse_response_body(api_response.body) if %w[200 201].include?(api_response.code)
-
-          handle_error(api_response)
+          case api_response.code
+          when "200", "201"
+            parse_response_body(api_response.body)
+          when "204"
+            {}
+          else
+            handle_error(api_response)
+          end
         end
       end
 

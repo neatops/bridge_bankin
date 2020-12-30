@@ -22,7 +22,7 @@ module BridgeBankin
       #
       # @param [Hash] data parsed API response body
       #
-      # @return the matched existing resource
+      # @return [Account, Bank, Category, Item, Stock, Transaction, Transfer, User, BridgeObject] a resource object
       #
       def convert_to_bridge_object(**data)
         if data[:resources]

@@ -82,10 +82,12 @@ module BridgeBankin
       # @param [String] access_token the access token provided during the user authentication
       # @param [Hash] params any params that might be required (or optional) to communicate with the API
       #
+      # @return [Boolean] the request success status
+      #
       def delete(id:, access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.delete("/v2/items/#{id}", params)
-          convert_to_bridge_object(data)
+          api_client.delete("/v2/items/#{id}", params)
+          true
         end
       end
     end
