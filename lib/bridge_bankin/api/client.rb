@@ -8,6 +8,9 @@ require "bridge_bankin/api/error"
 
 module BridgeBankin
   module API
+    #
+    # Allows to request the Bridge API using Ruby native net/http library
+    #
     class Client
       HTTP_VERBS_MAP = {
         get: Net::HTTP::Get,
@@ -18,18 +21,56 @@ module BridgeBankin
 
       attr_accessor :access_token
 
+      #
+      # Handles a GET request
+      #
+      # @param [String] path the API endpoint PATH to query
+      # @param [Hash] params any params that might be required (or optional) to communicate with the API
+      #
+      # @return [Hash] the parsed API response
+      #
+      # @raise [API::Error] expectation if API responding with any error
+      #
       def get(path, **params)
         request :get, path, params
       end
+
+      #
+      # Handles a POST request
+      #
+      # @param (see #get)
+      #
+      # @return (see #get)
+      #
+      # @raise (see #get)
+      #
 
       def post(path, **params)
         request :post, path, params
       end
 
+      #
+      # Handles a PUT request
+      #
+      # @param (see #get)
+      #
+      # @return (see #get)
+      #
+      # @raise (see #get)
+      #
       def put(path, **params)
         request :put, path, params
       end
 
+      #
+      # Handles a DELETE request
+      #
+      # @param (see #get)
+      #
+      # @return (see #get)
+      #
+      # @raise (see #get)
+      #
       def delete(path, **params)
         request :delete, path, params
       end

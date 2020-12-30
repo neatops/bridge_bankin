@@ -15,5 +15,8 @@ require "bridge_bankin/object_types"
 # Resources
 require "bridge_bankin/resources"
 
+#
+# BridgeBankin main module
+#
 module BridgeBankin
 end
