@@ -199,6 +199,10 @@ BridgeBankin::Bank.list(limit: 1)
      @name="Themis Banque">]>]
 ```
 
+## Development
+
+If you need more detailed informations regarding the gem source code you can find more in the official [RubyDoc](https://rubydoc.info/github/neatops/bridge_bankin/main).
+
 ## Contributing
 
 We're convinced this gem could be improved a lot or simply not cover every needs you have. That's why contributions of any kind is very encouraged.
