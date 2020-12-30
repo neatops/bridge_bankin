@@ -1,5 +1,20 @@
 <p align="center">
-  <img width="500" src="https://user-images.githubusercontent.com/112219/103307983-5fe04500-49df-11eb-9618-1f9704b2f460.png">
+  <img width="500" src="https://user-images.githubusercontent.com/112219/103307983-5fe04500-49df-11eb-9618-1f9704b2f460.png" alt="Bankin Bridge Logo">
+</p>
+
+<p align="center">
+  <a href="https://badge.fury.io/rb/bridge_bankin">
+    <img src="https://badge.fury.io/rb/bridge_bankin.svg" alt="Gem Version">
+  </a>
+  <a href="https://github.com/neatops/bridge_bankin/actions?query=workflow%3ACI">
+    <img src="https://github.com/neatops/bridge_bankin/workflows/CI/badge.svg" alt="CI Status">
+  </a>
+  <a href="https://github.com/neatops/bridge_bankin/actions?query=workflow%3ARuboCop">
+    <img src="https://github.com/neatops/bridge_bankin/workflows/RuboCop/badge.svg" alt="Rubocop Status">
+  </a>
+  <a href="https://rubydoc.info/github/neatops/bridge_bankin/main">
+    <img src="https://img.shields.io/badge/yard-docs-blue.svg" alt="RubyDoc Link">
+  </a>
 </p>
 
 <br />
