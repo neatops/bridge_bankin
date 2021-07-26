@@ -24,7 +24,7 @@ module BridgeBankin
       #
       # @return [Account, Bank, Category, Item, Stock, Transaction, Transfer, User, BridgeObject] a resource object
       #
-      def convert_to_bridge_object(**data)
+      def convert_to_bridge_object(data)
         if data[:resources]
           data[:resources].map { |resource| convert_to_bridge_object(resource) }
         elsif data.is_a?(Array)
@@ -41,7 +41,7 @@ module BridgeBankin
       end
 
       def object_from_resource_type(data)
-        object_classes.fetch(data[:resource_type], BridgeObject).new(data)
+        object_classes.fetch(data[:resource_type], BridgeObject).new(**data)
       end
     end
 

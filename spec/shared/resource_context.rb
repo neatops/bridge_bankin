@@ -18,11 +18,12 @@ RSpec.shared_context "when resource is public", shared_context: :metadata do
     it "does not require an access_token" do
       allow(api_client).to receive_messages(BridgeBankin::API::Client::HTTP_VERBS_MAP.keys)
       expect(api_client).not_to receive(:access_token=)
+      expect(api_client).to receive(request_method).with(endpoint, **request_params).and_return({})
       subject
     end
 
     it "calls API client with the correct method and endpoint" do
-      expect(api_client).to receive(request_method).with(endpoint, request_params)
+      expect(api_client).to receive(request_method).with(endpoint, **request_params).and_return({})
       subject
     end
   end
@@ -32,7 +33,7 @@ RSpec.shared_context "when resource is private", shared_context: :metadata do
   let(:authorization) do
     VCR.use_cassette("request_access_token") do
       BridgeBankin::Authorization.generate_token(
-        {
+        **{
           email: "john.doe@email.com",
           password: "password123"
         }
@@ -56,13 +57,14 @@ RSpec.shared_context "when resource is private", shared_context: :metadata do
 
     it "requires an access_token" do
       allow(api_client).to receive_messages(BridgeBankin::API::Client::HTTP_VERBS_MAP.keys)
-      expect(api_client).to receive(:access_token=).with(access_token)
+      expect(api_client).to receive(:access_token=).with(access_token).and_return({})
+      expect(api_client).to receive(request_method).with(endpoint, **request_params).and_return({})
       subject
     end
 
     it "calls API client with the correct method and endpoint" do
       allow(api_client).to receive(:access_token=).with(access_token)
-      expect(api_client).to receive(request_method).with(endpoint, request_params)
+      expect(api_client).to receive(request_method).with(endpoint, **request_params).and_return({})
       subject
     end
   end

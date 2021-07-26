@@ -22,7 +22,7 @@ RSpec.describe BridgeBankin::User do
   end
 
   describe ".create", public_resource: true do
-    subject { described_class.create(params) }
+    subject { described_class.create(**params) }
 
     it_behaves_like "a public resource" do
       let(:request_method) { :post }

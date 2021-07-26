@@ -4,7 +4,7 @@ RSpec.describe BridgeBankin::Authorization do
   describe ".generate_token", public_resource: true do
     subject(:authorization) do
       VCR.use_cassette("request_access_token") do
-        described_class.generate_token(user_credentials)
+        described_class.generate_token(**user_credentials)
       end
     end
 

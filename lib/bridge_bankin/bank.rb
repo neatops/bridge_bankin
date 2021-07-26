@@ -18,8 +18,8 @@ module BridgeBankin
       # @return [Array<Bank>] the supported banks list
       #
       def list(**params)
-        data = api_client.get("/v2/banks", params)
-        convert_to_bridge_object(data)
+        data = api_client.get("/v2/banks", **params)
+        convert_to_bridge_object(**data)
       end
 
       #
@@ -31,8 +31,8 @@ module BridgeBankin
       # @return [Bank] the requested bank
       #
       def find(id:, **params)
-        data = api_client.get("/v2/banks/#{id}", params)
-        convert_to_bridge_object(data)
+        data = api_client.get("/v2/banks/#{id}", **params)
+        convert_to_bridge_object(**data)
       end
     end
   end
