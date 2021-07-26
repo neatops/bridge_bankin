@@ -18,8 +18,8 @@ module BridgeBankin
       # @return [Array<Category>] the supported categories list
       #
       def list(**params)
-        data = api_client.get("/v2/categories", params)
-        convert_to_bridge_object(data)
+        data = api_client.get("/v2/categories", **params)
+        convert_to_bridge_object(**data)
       end
 
       #
@@ -31,8 +31,8 @@ module BridgeBankin
       # @return [Category] the requested category
       #
       def find(id:, **params)
-        data = api_client.get("/v2/categories/#{id}", params)
-        convert_to_bridge_object(data)
+        data = api_client.get("/v2/categories/#{id}", **params)
+        convert_to_bridge_object(**data)
       end
     end
   end

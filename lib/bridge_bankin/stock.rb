@@ -20,8 +20,8 @@ module BridgeBankin
       #
       def list(access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.get("/v2/stocks", params)
-          convert_to_bridge_object(data)
+          data = api_client.get("/v2/stocks", **params)
+          convert_to_bridge_object(**data)
         end
       end
 
@@ -35,8 +35,8 @@ module BridgeBankin
       #
       def list_updated(access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.get("/v2/stocks/updated", params)
-          convert_to_bridge_object(data)
+          data = api_client.get("/v2/stocks/updated", **params)
+          convert_to_bridge_object(**data)
         end
       end
 
@@ -51,8 +51,8 @@ module BridgeBankin
       #
       def find(id:, access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.get("/v2/stocks/#{id}", params)
-          convert_to_bridge_object(data)
+          data = api_client.get("/v2/stocks/#{id}", **params)
+          convert_to_bridge_object(**data)
         end
       end
     end
