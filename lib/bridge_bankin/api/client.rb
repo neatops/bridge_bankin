@@ -91,7 +91,13 @@ module BridgeBankin
 
           case api_response.code
           when "200", "201"
-            parse_response_body(api_response.body)
+            data = parse_response_body(api_response.body)
+
+            if data[:pagination][:next_uri] && follow_pages
+              handle_paging(data)
+            else
+              data
+            end
           when "204", "202"
             {}
           else
@@ -106,6 +112,25 @@ module BridgeBankin
 
       def uri
         @uri ||= URI.parse(BridgeBankin.configuration.api_base_url)
+      end
+
+      def follow_pages
+        BridgeBankin.configuration.follow_pages
+      end
+
+      def handle_paging(data)
+        if follow_pages && data[:pagination][:next_uri]
+          page_uri = URI.parse(data[:pagination][:next_uri])
+
+          params = URI.decode_www_form(page_uri.query).to_h
+
+          next_page_data = self.get(page_uri.path, **params)
+        end
+
+        next_page_data[:resources] << data[:resources]
+        next_page_data[:resources] = next_page_data[:resources].flatten
+
+        next_page_data
       end
 
       def headers

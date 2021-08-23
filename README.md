@@ -58,6 +58,7 @@ One you have your valid API credential you can now create an initializer in your
 BridgeBankin.configure do |config|
   config.api_client_id = ENV["BRIDGE_API_CLIENT_ID"]
   config.api_client_secret = ENV["BRIDGE_API_CLIENT_SECRET"]
+  config.follow_pages = true
 end
 ```
 
