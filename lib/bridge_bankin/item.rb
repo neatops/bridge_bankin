@@ -22,8 +22,8 @@ module BridgeBankin
       #
       def list(access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.get("/v2/items", params)
-          convert_to_bridge_object(data)
+          data = api_client.get("/v2/items", **params)
+          convert_to_bridge_object(**data)
         end
       end
 
@@ -38,8 +38,8 @@ module BridgeBankin
       #
       def find(id:, access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.get("/v2/items/#{id}", params)
-          convert_to_bridge_object(data)
+          data = api_client.get("/v2/items/#{id}", **params)
+          convert_to_bridge_object(**data)
         end
       end
 
@@ -54,8 +54,8 @@ module BridgeBankin
       #
       def refresh(id:, access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.post("/v2/items/#{id}/refresh", params)
-          convert_to_bridge_object(data)
+          data = api_client.post("/v2/items/#{id}/refresh", **params)
+          convert_to_bridge_object(**data)
         end
       end
 
@@ -70,8 +70,8 @@ module BridgeBankin
       #
       def refresh_status(id:, access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.get("/v2/items/#{id}/refresh/status", params)
-          convert_to_bridge_object(data)
+          data = api_client.get("/v2/items/#{id}/refresh/status", **params)
+          convert_to_bridge_object(**data)
         end
       end
 
@@ -86,7 +86,7 @@ module BridgeBankin
       #
       def delete(id:, access_token:, **params)
         protected_resource(access_token) do
-          api_client.delete("/v2/items/#{id}", params)
+          api_client.delete("/v2/items/#{id}", **params)
           true
         end
       end

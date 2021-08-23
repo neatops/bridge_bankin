@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bridge_bankin (0.1.2)
+    bridge_bankin (0.1.3)
 
 GEM
   remote: https://rubygems.org/
@@ -36,7 +36,7 @@ GEM
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.0.3)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -97,4 +97,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.2.1
+   2.2.3

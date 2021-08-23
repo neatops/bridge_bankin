@@ -92,7 +92,7 @@ module BridgeBankin
           case api_response.code
           when "200", "201"
             parse_response_body(api_response.body)
-          when "204"
+          when "204", "202"
             {}
           else
             handle_error(api_response)
