@@ -46,3 +46,6 @@ RSpec/StubbedMock:
 
 RSpec/MultipleExpectations:
   Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
