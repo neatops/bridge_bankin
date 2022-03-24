@@ -27,7 +27,7 @@ module BridgeBankin
     # Initializes Configuration
     #
     def initialize
-      @api_base_url = "https://sync.bankin.com"
+      @api_base_url = "https://api.bridgeapi.io"
       @api_version = "2019-02-18"
       @api_client_id = ""
       @api_client_secret = ""
