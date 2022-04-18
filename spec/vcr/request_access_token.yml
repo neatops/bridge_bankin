@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sync.bankin.com/v2/authenticate?email=john.doe@email.com&password=password123
+    uri: https://api.bridgeapi.io/v2/authenticate?email=john.doe@email.com&password=password123
     body:
       encoding: US-ASCII
       string: email=john.doe%40email.com&password=password123
