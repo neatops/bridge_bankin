@@ -5,8 +5,8 @@ require_relative "lib/bridge_bankin/version"
 Gem::Specification.new do |spec|
   spec.name          = "bridge_bankin"
   spec.version       = BridgeBankin::VERSION
-  spec.authors       = ["Olivier Buffon"]
-  spec.email         = ["olivier@buffon.dev"]
+  spec.authors       = ["Olivier Buffon", "Thomas Andrieu"]
+  spec.email         = ["olivier@buffon.dev", "t.andrieu@gmail.com"]
 
   spec.summary       = "Unofficial Ruby client to consume Bridge by Bankin’ API"
 

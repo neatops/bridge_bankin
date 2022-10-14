@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bridge_bankin (0.1.6)
+    bridge_bankin (0.1.7)
 
 GEM
   remote: https://rubygems.org/
