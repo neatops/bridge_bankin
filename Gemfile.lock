@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bridge_bankin (0.1.7)
+    bridge_bankin (0.1.8)
 
 GEM
   remote: https://rubygems.org/
@@ -97,4 +97,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.2.3
+   2.3.13
