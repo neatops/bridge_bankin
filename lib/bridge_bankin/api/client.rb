@@ -79,8 +79,12 @@ module BridgeBankin
 
       def request(method, path, params = {})
         make_http_request do
-          HTTP_VERBS_MAP[method].new(encode_path(path, params), headers).tap do |request|
-            request.set_form_data(params) if method != :get
+          if method == :get
+            Net::HTTP::Get.new(encode_path(path, params), headers)
+          else
+            HTTP_VERBS_MAP[method].new(path, headers).tap do |request|
+              request.body = params.to_json
+            end
           end
         end
       end
