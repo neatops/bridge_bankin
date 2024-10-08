@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe BridgeBankin::Account do
-  describe ".list", private_resource: true do
+  describe ".list", :private_resource do
     subject { described_class.list(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -10,7 +10,7 @@ RSpec.describe BridgeBankin::Account do
     end
   end
 
-  describe ".find", private_resource: true do
+  describe ".find", :private_resource do
     subject { described_class.find(id: account_id, access_token: access_token) }
 
     it_behaves_like "a protected resource" do

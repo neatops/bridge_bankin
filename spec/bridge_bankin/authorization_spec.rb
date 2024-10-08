@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe BridgeBankin::Authorization do
-  describe ".generate_token", public_resource: true do
+  describe ".generate_token", :public_resource do
     subject(:authorization) do
       VCR.use_cassette("request_access_token") do
         described_class.generate_token(**user_credentials)

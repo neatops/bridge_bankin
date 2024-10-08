@@ -3,7 +3,7 @@
 RSpec.describe BridgeBankin::Stock do
   let(:stock_id) { 2_535_999 }
 
-  describe ".list", private_resource: true do
+  describe ".list", :private_resource do
     subject { described_class.list(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -12,7 +12,7 @@ RSpec.describe BridgeBankin::Stock do
     end
   end
 
-  describe ".list_updated", private_resource: true do
+  describe ".list_updated", :private_resource do
     subject { described_class.list_updated(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -21,7 +21,7 @@ RSpec.describe BridgeBankin::Stock do
     end
   end
 
-  describe ".find", private_resource: true do
+  describe ".find", :private_resource do
     subject { described_class.find(id: stock_id, access_token: access_token) }
 
     it_behaves_like "a protected resource" do

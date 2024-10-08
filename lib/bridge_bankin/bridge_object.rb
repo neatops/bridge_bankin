@@ -74,7 +74,7 @@ module BridgeBankin
         next if HIDDEN_ATTRIBUTES.include?(key)
 
         handle_values_types(key, value) do |parsed_value|
-          instance_variable_set("@#{key}".to_sym, parsed_value)
+          instance_variable_set(:"@#{key}", parsed_value)
           self.class.class_eval { attr_reader key }
         end
       end

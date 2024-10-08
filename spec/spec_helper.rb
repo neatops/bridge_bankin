@@ -9,8 +9,8 @@ require "vcr"
 require "pry"
 
 BridgeBankin.configure do |config|
-  config.api_client_id = ENV["BRIDGE_API_CLIENT_ID"]
-  config.api_client_secret = ENV["BRIDGE_API_CLIENT_SECRET"]
+  config.api_client_id = ENV.fetch("BRIDGE_API_CLIENT_ID", nil)
+  config.api_client_secret = ENV.fetch("BRIDGE_API_CLIENT_SECRET", nil)
 end
 
 VCR.configure do |config|
