@@ -28,7 +28,7 @@ module BridgeBankin
     #
     def initialize
       @api_base_url = "https://api.bridgeapi.io"
-      @api_version = "2019-02-18"
+      @api_version = "2021-06-01"
       @api_client_id = ""
       @api_client_secret = ""
       @follow_pages = false
