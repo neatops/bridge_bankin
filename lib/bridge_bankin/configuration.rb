@@ -20,8 +20,14 @@ module BridgeBankin
   # Configurations setup
   #
   class Configuration
-    attr_reader :api_base_url, :api_version
-    attr_accessor :api_client_id, :api_client_secret, :follow_pages
+    attr_reader :api_base_url
+
+    attr_accessor \
+      :api_client_id,
+      :api_client_secret,
+      :api_version,
+      :locale,
+      :follow_pages
 
     #
     # Initializes Configuration
@@ -31,6 +37,7 @@ module BridgeBankin
       @api_version = "2021-06-01"
       @api_client_id = ""
       @api_client_secret = ""
+      @locale = "en"
       @follow_pages = false
     end
   end
