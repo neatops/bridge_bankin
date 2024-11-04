@@ -143,7 +143,8 @@ module BridgeBankin
             "Bankin-Version" => BridgeBankin.configuration.api_version,
             "Client-Id" => BridgeBankin.configuration.api_client_id,
             "Client-Secret" => BridgeBankin.configuration.api_client_secret,
-            "Content-Type" => "application/json"
+            "Content-Type" => "application/json",
+            "Accept-Language" => BridgeBankin.configuration.locale
           }
 
         return headers unless access_token
