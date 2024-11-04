@@ -4,7 +4,7 @@ RSpec.describe BridgeBankin::Transfer do
   let(:transfer_uuid) { SecureRandom.uuid }
   let(:sender_account_id) { 123 }
 
-  describe ".send", private_resource: true do
+  describe ".send", :private_resource do
     subject { described_class.send(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -13,7 +13,7 @@ RSpec.describe BridgeBankin::Transfer do
     end
   end
 
-  describe ".list", private_resource: true do
+  describe ".list", :private_resource do
     subject { described_class.list(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -22,7 +22,7 @@ RSpec.describe BridgeBankin::Transfer do
     end
   end
 
-  describe ".find", private_resource: true do
+  describe ".find", :private_resource do
     subject { described_class.find(uuid: transfer_uuid, access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -31,7 +31,7 @@ RSpec.describe BridgeBankin::Transfer do
     end
   end
 
-  describe ".list_all_sender_accounts", private_resource: true do
+  describe ".list_all_sender_accounts", :private_resource do
     subject { described_class.list_all_sender_accounts(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -40,7 +40,7 @@ RSpec.describe BridgeBankin::Transfer do
     end
   end
 
-  describe ".list_all_receiver_accounts", private_resource: true do
+  describe ".list_all_receiver_accounts", :private_resource do
     subject { described_class.list_all_receiver_accounts(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -49,7 +49,7 @@ RSpec.describe BridgeBankin::Transfer do
     end
   end
 
-  describe ".list_receiver_accounts_for_sender", private_resource: true do
+  describe ".list_receiver_accounts_for_sender", :private_resource do
     subject do
       described_class
         .list_receiver_accounts_for_sender(sender_account_id: sender_account_id, access_token: access_token)

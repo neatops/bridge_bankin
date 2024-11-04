@@ -3,7 +3,7 @@
 RSpec.describe BridgeBankin::Category do
   let(:category_id) { 123 }
 
-  describe ".list", public_resource: true do
+  describe ".list", :public_resource do
     subject { described_class.list }
 
     it_behaves_like "a public resource" do
@@ -12,7 +12,7 @@ RSpec.describe BridgeBankin::Category do
     end
   end
 
-  describe ".find", public_resource: true do
+  describe ".find", :public_resource do
     subject { described_class.find(id: category_id) }
 
     it_behaves_like "a public resource" do

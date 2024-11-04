@@ -79,8 +79,12 @@ module BridgeBankin
 
       def request(method, path, params = {})
         make_http_request do
-          HTTP_VERBS_MAP[method].new(encode_path(path, params), headers).tap do |request|
-            request.set_form_data(params) if method != :get
+          if method == :get
+            Net::HTTP::Get.new(encode_path(path, params), headers)
+          else
+            HTTP_VERBS_MAP[method].new(path, headers).tap do |request|
+              request.body = params.to_json
+            end
           end
         end
       end
@@ -139,7 +143,8 @@ module BridgeBankin
             "Bankin-Version" => BridgeBankin.configuration.api_version,
             "Client-Id" => BridgeBankin.configuration.api_client_id,
             "Client-Secret" => BridgeBankin.configuration.api_client_secret,
-            "Content-Type" => "application/json"
+            "Content-Type" => "application/json",
+            "Accept-Language" => BridgeBankin.configuration.locale
           }
 
         return headers unless access_token

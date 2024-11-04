@@ -3,7 +3,7 @@
 RSpec.describe BridgeBankin::Item do
   let(:item_id) { 4_388_758 }
 
-  describe ".list", private_resource: true do
+  describe ".list", :private_resource do
     subject { described_class.list(access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -12,7 +12,7 @@ RSpec.describe BridgeBankin::Item do
     end
   end
 
-  describe ".find", private_resource: true do
+  describe ".find", :private_resource do
     subject { described_class.find(id: item_id, access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -21,7 +21,7 @@ RSpec.describe BridgeBankin::Item do
     end
   end
 
-  describe ".refresh", private_resource: true do
+  describe ".refresh", :private_resource do
     subject { described_class.refresh(id: item_id, access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -30,7 +30,7 @@ RSpec.describe BridgeBankin::Item do
     end
   end
 
-  describe ".refresh_status", private_resource: true do
+  describe ".refresh_status", :private_resource do
     subject { described_class.refresh_status(id: item_id, access_token: access_token) }
 
     it_behaves_like "a protected resource" do
@@ -39,7 +39,7 @@ RSpec.describe BridgeBankin::Item do
     end
   end
 
-  describe ".delete", private_resource: true do
+  describe ".delete", :private_resource do
     subject { described_class.delete(id: item_id, access_token: access_token) }
 
     it_behaves_like "a protected resource" do

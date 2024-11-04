@@ -12,5 +12,10 @@ require "awesome_print"
 # require "pry"
 # Pry.start
 
+BridgeBankin.configure do |config|
+  config.api_client_id = ENV.fetch("BRIDGE_API_CLIENT_ID", nil)
+  config.api_client_secret = ENV.fetch("BRIDGE_API_CLIENT_SECRET", nil)
+end
+
 require "pry"
 Pry.start(__FILE__)

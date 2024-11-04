@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "when resource is public", shared_context: :metadata do
-  let(:api_client) { instance_double("BridgeBankin::API::Client") }
+  let(:api_client) { instance_double(BridgeBankin::API::Client) }
 
   shared_examples "a public resource" do
     let(:request_params) { defined?(params) ? params : {} }
@@ -33,15 +33,13 @@ RSpec.shared_context "when resource is private", shared_context: :metadata do
   let(:authorization) do
     VCR.use_cassette("request_access_token") do
       BridgeBankin::Authorization.generate_token(
-        **{
-          email: "john.doe@email.com",
-          password: "password123"
-        }
+        email: "john.doe@email.com",
+        password: "password123"
       )
     end
   end
   let(:access_token) { authorization.access_token }
-  let(:api_client) { instance_double("BridgeBankin::API::Client") }
+  let(:api_client) { instance_double(BridgeBankin::API::Client) }
 
   shared_examples "a protected resource" do
     let(:request_params) { defined?(params) ? params : {} }
