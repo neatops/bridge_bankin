@@ -20,7 +20,7 @@ module BridgeBankin
       #
       def send(access_token:, **params)
         protected_resource(access_token) do
-          data = api_client.post("/v2/pay/transfer/url", **params)
+          data = api_client.post("/v2/pay/transfer", **params)
           convert_to_bridge_object(**data)
         end
       end
@@ -67,37 +67,6 @@ module BridgeBankin
       def list_all_sender_accounts(access_token:, **params)
         protected_resource(access_token) do
           data = api_client.get("/v2/transfers/accounts/senders", **params)
-          convert_to_bridge_object(**data)
-        end
-      end
-
-      #
-      # List all receiver transfer accounts
-      #
-      # @param [String] access_token the access token provided during the user authentication
-      # @param [Hash] params any params that might be required (or optional) to communicate with the API
-      #
-      # @return [Array<BridgeObject>] the user accounts
-      #
-      def list_all_receiver_accounts(access_token:, **params)
-        protected_resource(access_token) do
-          data = api_client.get("/v2/transfers/accounts/receivers", **params)
-          convert_to_bridge_object(**data)
-        end
-      end
-
-      #
-      # List all receiver transfer accounts for a specific sender account
-      #
-      # @param [Integer] sender_account_id the sender_account_id of the requested resource
-      # @param [String] access_token the access token provided during the user authentication
-      # @param [Hash] params any params that might be required (or optional) to communicate with the API
-      #
-      # @return [Array<BridgeObject>] the user accounts
-      #
-      def list_receiver_accounts_for_sender(sender_account_id:, access_token:, **params)
-        protected_resource(access_token) do
-          data = api_client.get("/v2/transfers/accounts/#{sender_account_id}/receivers", **params)
           convert_to_bridge_object(**data)
         end
       end
