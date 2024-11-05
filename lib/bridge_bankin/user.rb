@@ -48,32 +48,6 @@ module BridgeBankin
       end
 
       #
-      # Update user email
-      #
-      # @param [UUID] uuid the uuid of the requested resource
-      # @param [Hash] params any params that might be required (or optional) to communicate with the API
-      #
-      # @return [User] the updated user
-      #
-      def update_email(uuid:, **params)
-        data = api_client.put("/v2/users/#{uuid}/email", **params)
-        convert_to_bridge_object(**data)
-      end
-
-      #
-      # Update user password
-      #
-      # @param [UUID] uuid the uuid of the requested resource
-      # @param [Hash] params any params that might be required (or optional) to communicate with the API
-      #
-      # @return [User] the updated user
-      #
-      def update_password(uuid:, **params)
-        data = api_client.put("/v2/users/#{uuid}/password", **params)
-        convert_to_bridge_object(**data)
-      end
-
-      #
       # Delete a specific user
       #
       # @param [UUID] uuid the uuid of the requested resource
@@ -82,7 +56,7 @@ module BridgeBankin
       # @return [Boolean] the request success status
       #
       def delete_user(uuid:, **params)
-        api_client.delete("/v2/users/#{uuid}", **params)
+        api_client.post("/v2/users/#{uuid}/delete", **params)
         true
       end
 
