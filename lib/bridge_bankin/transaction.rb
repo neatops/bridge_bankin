@@ -85,21 +85,6 @@ module BridgeBankin
           convert_to_bridge_object(**data)
         end
       end
-
-      #
-      # List all logged in user transactions with a specific IBAN
-      #
-      # @param [String] access_token the access token provided during the user authentication
-      # @param [Hash] params any params that might be required (or optional) to communicate with the API
-      #
-      # @return [Array<Transaction>] the user accounts
-      #
-      def list_by_iban(access_token:, **params)
-        protected_resource(access_token) do
-          data = api_client.post("/v2/transactions/search", **params)
-          convert_to_bridge_object(**data)
-        end
-      end
     end
   end
 end
